@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserve Appointment</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+body{
+    background:#a6e8fc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+.container{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    width:90%;
+    max-width:500px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.2);
+}
+h1{text-align:center;margin-bottom:25px;color:#061d3b;}
+input,select,textarea,button{
+    width:100%;
+    padding:12px;
+    margin-bottom:15px;
+    font-size:16px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#00aaff;}
+button{
+    background:#25D366;
+    color:white;
+    border:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+button:hover{background:#1ebe5b;}
+.loading{display:none;text-align:center;color:#006400;margin-bottom:10px;}
+.success{display:none;text-align:center;color:green;margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Reserve Appointment</h1>
+
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Your Email" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="date" id="date" required>
+<select id="service">
+    <option value="">Select Service</option>
+    <option>General Consultation</option>
+    <option>Dental</option>
+    <option>Checkup</option>
+</select>
+<textarea id="info" placeholder="Additional Information"></textarea>
+
+<p class="loading" id="loading">Sending...</p>
+<p class="success" id="success">Reservation sent successfully!</p>
+
+<button id="submitBtn">Submit</button>
+</div>
+
+<script>
+const SCRIPT_URL="https://script.google.com/macros/s/AKfycbxfET9RnwtJrf1B_JmF8o0vIwX6egZzZ5J9v4kG-g9xAO0NKYp8Zvir2lvq-KPYjlP_wA/exec";
+
+document.getElementById("submitBtn").addEventListener("click",function(){
+    const name=document.getElementById("name").value.trim();
+    const email=document.getElementById("email").value.trim();
+    const phone=document.getElementById("phone").value.trim();
+    const date=document.getElementById("date").value;
+    const service=document.getElementById("service").value;
+    const info=document.getElementById("info").value.trim();
+    
+    if(!name||!email||!phone||!date||!service){
+        alert("Please fill all required fields");
+        return;
+    }
+
+    document.getElementById("loading").style.display="block";
+    document.getElementById("submitBtn").disabled=true;
+    document.getElementById("success").style.display="none";
+
+    const data={
+        Name:name,
+        Email:email,
+        Phone:phone,
+        Date:date,
+        Service:service,
+        Info:info,
+        Timestamp:new Date().toLocaleString()
+    };
+
+    fetch(SCRIPT_URL,{
+        method:"POST",
+        body:JSON.stringify(data)
+    })
+    .then(res=>res.text())
+    .then(()=>{
+        document.getElementById("success").style.display="block";
+        clearForm();
+    })
+    .catch(()=>{
+        alert("Failed to send. Try again!");
+    })
+    .finally(()=>{
+        document.getElementById("loading").style.display="none";
+        document.getElementById("submitBtn").disabled=false;
+    });
+});
+
+function clearForm(){
+    document.getElementById("name").value="";
+    document.getElementById("email").value="";
+    document.getElementById("phone").value="";
+    document.getElementById("date").value="";
+    document.getElementById("service").value="";
+    document.getElementById("info").value="";
+}
+</script>
+
+</body>
+</html>

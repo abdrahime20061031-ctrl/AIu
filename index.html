@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Clinic</title>
+<meta name="description" content="Doctor clinic website. Contact the clinic easily.">
+<meta name="keywords" content="doctor, clinic, dentist, medical appointment">
+<meta name="author" content="Clinic">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:linear-gradient(to right,#437ddd,#061d3b);
+  color:white;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  background:rgba(0,0,0,0.4);
+  flex-wrap:wrap;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:bold;
+}
+
+nav a{
+  margin:5px;
+}
+
+button{
+  background:#6bdef5;
+  border:none;
+  padding:10px 18px;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:80px 20px;
+  background:url("Slide1_unblur_4×.PNG");
+  background-size:cover;
+  background-position:center;
+}
+
+.hero h1{
+  font-size:45px;
+}
+
+.hero p{
+  font-size:20px;
+  color:aquamarine;
+}
+
+/* SLIDER */
+.slider{
+  overflow:hidden;
+  width:100%;
+  max-width:100%;
+  margin-top:30px;
+}
+
+.slides{
+  display:flex;
+  animation:slide 12s linear infinite;
+}
+
+.slides img{
+  width:100%;
+  height:auto;
+  object-fit:cover;
+  flex-shrink:0;
+}
+
+@keyframes slide{
+  0%{transform:translateX(0);}
+  33%{transform:translateX(-100%);}
+  66%{transform:translateX(-200%);}
+  100%{transform:translateX(0);}
+}
+
+@media(max-width:768px){
+  .slides img{
+    height:200px;
+  }
+}
+
+@media(max-width:480px){
+  .slides img{
+    height:150px;
+  }
+}
+
+/* GALLERY */
+.gallery{
+  margin:50px 0;
+  text-align:center;
+}
+
+.gallery h2{
+  margin-bottom:20px;
+  font-size:28px;
+}
+
+.gallery-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.gallery-container img{
+  width:calc(20% - 10px);
+  height:150px;
+  object-fit:cover;
+  border-radius:10px;
+  transition:0.3s;
+  cursor:pointer;
+}
+
+.gallery-container img:hover{
+  transform:scale(1.05);
+}
+
+@media(max-width:900px){
+  .gallery-container img{
+    width:calc(33.33% - 10px);
+    height:120px;
+  }
+}
+
+@media(max-width:768px){
+  .gallery-container img{
+    width:calc(50% - 10px);
+    height:100px;
+  }
+}
+
+/* MAP */
+.map{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:40px;
+}
+
+.map iframe{
+  width:400px;
+  height:250px;
+  border:none;
+  border-radius:10px;
+}
+
+/* TIMETABLE */
+.timetable{
+  background:white;
+  color:black;
+  padding:30px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+th,td{
+  padding:12px;
+  border:2px solid #13afe3;
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  background:black;
+  padding:30px;
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+}
+
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:white;
+  font-size:25px;
+  padding:15px;
+  border-radius:50%;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Doctor Clinic</div>
+<nav>
+<a href="index3.html"><button>📞 Contact</button></a>
+<a href="index4.html"><button>sheet</button></a>
+<a href="index2.html"><button>Reserve</button></a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>WELCOME</h1>
+<p>to the doctor's clinic website</p>
+</section>
+
+<!-- SLIDER -->
+<div class="slider">
+  <div class="slides">
+    <img src="dmchannelsng-hospital-4904921_1920.jpg" alt="Doctor 1">
+    <img src="jarmoluk-lab-2815638_1920.jpg" alt="Doctor 2">
+    <img src="luvqs-scientist-2141259_1920.jpg" alt="Clinic 1">
+  </div>
+</div>
+
+<!-- GALLERY SECTION -->
+<section class="gallery">
+  <h2>Our Clinic Gallery</h2>
+  <div class="gallery-container">
+    <img src="istockphoto-2134367155-612x612.jpg" alt="Doctor 1">
+    <img src="empty-corridor-hospital.jpg" alt="Doctor 2">
+    <img src="healthcare-business-graph-data-and-growth-insurance-healthcare-doctor-analyzing-medical-of.jpg" alt="Clinic 1">
+    <img src="doctor-with-clipboard-and-patient-at-hospital.jpg" alt="Clinic 2">
+    <img src="beauty-salon-interior-without-people.jpg" alt="Clinic 3">
+  </div>
+</section>
+
+<section class="map">
+<iframe src="https://maps.google.com/maps?q=algeria&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+<h2>⭐⭐⭐⭐⭐</h2>
+</section>
+
+<section class="timetable">
+<h2>Clinic Time</h2>
+<table>
+<tr><th>DAY</th><th>FROM</th><th>TO</th></tr>
+<tr><td>Sunday</td><td>9:00</td><td>17:00</td></tr>
+<tr><td>Monday</td><td>9:00</td><td>17:00</td></tr>
+<tr><td>Tuesday</td><td>9:00</td><td>17:00</td></tr>
+<tr><td>Wednesday</td><td>9:00</td><td>17:00</td></tr>
+<tr><td>Thursday</td><td>9:00</td><td>17:00</td></tr>
+<tr><td>Saturday</td><td>9:00</td><td>17:00</td></tr>
+</table>
+</section>
+
+<footer>
+<div>
+<h3>Contact</h3>
+<p>gmail@gmail.com</p>
+<p>+213 559063672</p>
+<p>Place</p>
+</div>
+<div>
+<h3>Links</h3>
+<p>About Us</p>
+</div>
+<div>
+<h3>Date</h3>
+<p>2025-12-28</p>
+</div>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/213559063672">💬</a>
+
+</body>
+</html>
